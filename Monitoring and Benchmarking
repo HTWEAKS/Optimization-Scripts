@@ -1,0 +1,14 @@
+Monitoring
+===========
+HWMonitor- https://www.cpuid.com/downloads/hwmonitor/hwmonitor_1.58.exe (use this for monitoring temps, cpu usage, just info about your components)
+Core Temp- https://www.alcpu.com/CoreTemp/#google_vignette (this is for CPU monitoring specifically)
+CPU-Z - https://www.techpowerup.com/download/cpu-z/ (displaying detailed information about your CPU)
+GPU-Z - https://www.techpowerup.com/gpuz/ (displaying detailed information about your GPU)
+
+Benchmarking
+============
+Cinebench- https://www.maxon.net/en/downloads/cinebench-2024-downloads?srsltid=AfmBOoqNFNS_om-aVeUrdWnc0sqzCyJ4iIGbifzzbErya3jUuSqTMSuj (For standard CPU benchmarking)
+3DMark- https://www.3dmark.com (Popular GPU Benchmarking)
+FurMark- https://geeks3d.com/furmark/downloads/ (Extreme GPU stress test)
+
+If you want to benchmark if theres a difference in performance for you if you disable virtulization -
