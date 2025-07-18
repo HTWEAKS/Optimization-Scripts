@@ -1,1 +1,18 @@
+Nvidia GPU Drivers (reliable ones, and links to them)
+=====================================================
+https://www.nvidia.com/en-us/drivers/details/235904/ (566.14)
+https://www.nvidia.com/en-us/drivers/details/237719/ (566.36)
+https://www.nvidia.com/en-us/drivers/ (latest, just search yours bcuz i dont want to put a link and its not the latest)
 
+AMD Drivers 
+============
+https://www.amd.com/en/support/download/drivers.html (pretty sure that most recent drivers are optimal for AMD)
+
+Intel Drivers
+==============
+https://www.intel.com/content/www/us/en/search.html#sort=%40lastmodifieddt%20descending&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]
+(just search for the latest one for you)
+
+Resources
+==========
+https://www.wagnardsoft.com/display-driver-uninstaller-DDU- (use this to clean up any residual drivers)
