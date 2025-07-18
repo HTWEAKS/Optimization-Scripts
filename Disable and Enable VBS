@@ -1,1 +1,93 @@
+c&p this and rename it disable vbs:
 
+@echo off
+setlocal enableDelayedExpansion
+chcp 65001 >NUL
+
+:: Script to Disable Virtualization-based Security (VBS)
+:: ALWAYS RUN THIS SCRIPT AS ADMINISTRATOR.
+
+:: -------------------------------------------------------------------------------------
+:: WARNING: Disabling VBS can reduce system security.
+::          Only proceed if you understand the implications and accept the risk.
+::          A system reboot will be required for changes to take full effect.
+:: -------------------------------------------------------------------------------------
+
+echo.
+echo ==========================================================
+echo  WARNING: DISABLING VIRTUALIZATION-BASED SECURITY (VBS)
+echo ==========================================================
+echo.
+echo This script will attempt to disable VBS, which can free up
+echo some system resources and potentially improve gaming performance
+echo on certain systems.
+echo.
+echo HOWEVER, disabling VBS also REDUCES YOUR SYSTEM'S SECURITY.
+echo It is highly recommended to ONLY do this if you are an advanced user
+echo and have other robust security measures in place.
+echo.
+echo A system reboot is required for these changes to take full effect.
+echo.
+echo Do you wish to continue? (Y/N)
+set /p "confirm_vbs=Confirm [Y/N]: "
+
+IF /I "!confirm_vbs!" NEQ "Y" (
+    echo.
+    echo VBS disabling cancelled.
+    echo Press any key to exit...
+    pause >NUL
+    exit /b
+)
+
+echo.
+echo Initiating VBS Disabling Process...
+
+:: 1. Disable Virtualization-based Security via Registry (equivalent to Group Policy)
+echo [VBS] Disabling VBS in Registry...
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\LSA" /v "LsaCfgFlags" /t REG_DWORD /d 0 /f >NUL 2>&1
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\LSA" /v "RunAsPPL" /t REG_DWORD /d 0 /f >NUL 2>&1
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard" /v "EnableVirtualizationBasedSecurity" /t REG_DWORD /d 0 /f >NUL 2>&1
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard" /v "LsaCfgFlags" /t REG_DWORD /d 0 /f >NUL 2>&1
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard" /v "HypervisorEnforcedCodeIntegrity" /t REG_DWORD /d 0 /f >NUL 2>&1
+
+IF %ERRORLEVEL% EQU 0 (
+    echo  - VBS Registry keys set to disabled.
+) ELSE (
+    echo  - Failed to set some VBS Registry keys.
+)
+
+:: 2. Disable Hyper-V Windows Feature (if enabled)
+echo [VBS] Disabling Hyper-V Windows Feature (if present)...
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V >NUL 2>&1
+dism.exe /Online /Disable-Feature:HypervisorPlatform >NUL 2>&1
+dism.exe /Online /Disable-Feature:VirtualMachinePlatform >NUL 2>&1
+:: Additional check for Sandbox or WSL-related components that might rely on Hyper-V
+dism.exe /Online /Disable-Feature:Windows-Sandbox >NUL 2>&1
+dism.exe /Online /Disable-Feature:Microsoft-Windows-Subsystem-Linux /NoRestart >NUL 2>&1
+
+IF %ERRORLEVEL% EQU 0 (
+    echo  - Hyper-V and related platforms disabled.
+) ELSE (
+    echo  - Hyper-V features may not have been present or failed to disable.
+)
+
+:: 3. Disable Memory Integrity (HVCI) - often tied to VBS
+echo [VBS] Disabling Memory Integrity (HVCI) in Windows Security...
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v "Enabled" /t REG_DWORD /d 0 /f >NUL 2>&1
+
+IF %ERRORLEVEL% EQU 0 (
+    echo  - Memory Integrity (HVCI) disabled.
+) ELSE (
+    echo  - Failed to disable Memory Integrity (HVCI).
+)
+
+echo.
+echo ==========================================================
+echo  VBS Disabling Process Completed.
+echo ==========================================================
+echo.
+echo FOR CHANGES TO TAKE FULL EFFECT, YOU MUST RESTART YOUR PC.
+echo.
+echo Press any key to exit...
+pause >NUL
+exit /b
