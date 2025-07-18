@@ -1,0 +1,27 @@
+Windows Registry Editor Version 5.00
+
+; Revert: Re-enable Spectre & Meltdown CPU Mitigations (Default Security)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management]
+"FeatureSettingsOverride"=-
+"FeatureSettingsOverrideMask"=-
+
+; Revert: Restore Network Throttling & System Responsiveness to Defaults
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"NetworkThrottlingIndex"=dword:0000000a
+"SystemResponsiveness"=dword:00000014
+
+; Revert: Re-enable Automatic System Maintenance
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance]
+"MaintenanceDisabled"=-
+
+; Revert: Re-enable Mouse Acceleration (Pointer Precision)
+[HKEY_CURRENT_USER\Control Panel\Mouse]
+"MouseSpeed"="1"
+"MouseThreshold1"="6"
+"MouseThreshold2"="10"
+
+; Revert: Re-enable Visual Effects (Transparency) and Start Menu Web Search
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize]
+"EnableTransparency"=dword:00000001
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"DisableSearchBoxSuggestions"=-
