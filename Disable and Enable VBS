@@ -91,3 +91,97 @@ echo.
 echo Press any key to exit...
 pause >NUL
 exit /b
+
+
+
+
+
+
+
+Enable VBS-
+c&p this and put it into a .bat file and name it Enable VBS
+
+@echo off
+setlocal enableDelayedExpansion
+chcp 65001 >NUL
+
+:: Script to Re-Enable Virtualization-based Security (VBS)
+:: ALWAYS RUN THIS SCRIPT AS ADMINISTRATOR.
+
+:: -------------------------------------------------------------------------------------
+:: IMPORTANT: Re-enabling VBS enhances system security.
+::            A system reboot will be required for changes to take full effect.
+:: -------------------------------------------------------------------------------------
+
+echo.
+echo ==========================================================
+echo  RE-ENABLING VIRTUALIZATION-BASED SECURITY (VBS)
+echo ==========================================================
+echo.
+echo This script will attempt to re-enable VBS and its related
+echo security features. This is recommended for most users to
+echo maintain a higher level of system security.
+echo.
+echo A system reboot is required for these changes to take full effect.
+echo.
+echo Do you wish to continue? (Y/N)
+set /p "confirm_vbs=Confirm [Y/N]: "
+
+IF /I "!confirm_vbs!" NEQ "Y" (
+    echo.
+    echo VBS re-enabling cancelled.
+    echo Press any key to exit...
+    pause >NUL
+    exit /b
+)
+
+echo.
+echo Initiating VBS Re-enabling Process...
+
+:: 1. Enable Virtualization-based Security via Registry (equivalent to Group Policy)
+echo [VBS] Re-enabling VBS in Registry...
+:: Set LsaCfgFlags to 1 (Enabled for TPM-protected LSA)
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\LSA" /v "LsaCfgFlags" /t REG_DWORD /d 1 /f >NUL 2>&1
+:: Set RunAsPPL (Protected Process Light) to 1 (Enabled)
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\LSA" /v "RunAsPPL" /t REG_DWORD /d 1 /f >NUL 2>&1
+:: EnableVirtualizationBasedSecurity
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard" /v "EnableVirtualizationBasedSecurity" /t REG_DWORD /d 1 /f >NUL 2>&1
+:: Enable HypervisorEnforcedCodeIntegrity (Memory Integrity)
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard" /v "HypervisorEnforcedCodeIntegrity" /t REG_DWORD /d 1 /f >NUL 2>&1
+:: Set LsaCfgFlags in DeviceGuard policy path as well
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard" /v "LsaCfgFlags" /t REG_DWORD /d 1 /f >NUL 2>&1
+
+IF %ERRORLEVEL% EQU 0 (
+    echo  - VBS Registry keys set to enabled.
+) ELSE (
+    echo  - Failed to set some VBS Registry keys.
+)
+
+:: 2. Enable Hypervisor Platform and Virtual Machine Platform Windows Features
+:: These are typically required for VBS to function.
+echo [VBS] Enabling Hypervisor Platform and Virtual Machine Platform Windows Features...
+dism.exe /Online /Enable-Feature:HypervisorPlatform /All /NoRestart >NUL 2>&1
+dism.exe /Online /Enable-Feature:VirtualMachinePlatform /All /NoRestart >NUL 2>&1
+
+IF %ERRORLEVEL% EQU 0 (
+    echo  - Hypervisor Platform and Virtual Machine Platform enabled.
+) ELSE (
+    echo  - Failed to enable Hypervisor Platform features.
+)
+
+:: 3. Enable Memory Integrity (HVCI) - often tied to VBS, and explicitly controlled here.
+echo [VBS] Re-enabling Memory Integrity (HVCI) in Windows Security...
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v "Enabled" /t REG_DWORD /d 1 /f >NUL 2>&1
+
+IF %ERRORLEVEL% EQU 0 (
+    echo  - Memory Integrity (HVCI) enabled.
+) ELSE (
+    echo  - Failed to enable Memory Integrity (HVCI).
+)
+
+echo.
+echo ==========================================================
+echo  VBS Re-enabling Process Completed.
+echo ==========================================================
+echo.
+echo FOR CHANGES TO TAKE FULL EFFECT
