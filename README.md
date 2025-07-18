@@ -7,7 +7,8 @@ Installation steps
 3. run it
 4. After go back to the PCOptimizer folder
 5. and use the reg tweaks .reg file and the bcdedit .bat file
-   OPTIONAL-
+
+    OPTIONAL-
 1. Nvidia Profile is only for Nvidia GPU's (will add more GPU support)
 2. IP refresh is just for flushing dns and renewing your ip (not essential but no harm in doing it)
 
