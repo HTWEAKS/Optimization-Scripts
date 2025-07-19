@@ -1,0 +1,215 @@
+credits to ancel, link to his discord server: https://discord.gg/qN8TaRqF
+
+Intel Hidden Bios Setting Guide (Scewin)
+By: ancel_
+
+
+Disclaimer: This guide aims to assist users in accessing hidden BIOS settings to enhance system performance and reduce latency. However, please be aware that altering BIOS settings carries inherent risks and may result in unintended consequences, including system instability or hardware damage. Proceed with caution and at your own risk. I am not liable or responsible for any issues that may arise from following the instructions in this guide.
+
+
+Discord Server: https://discord.gg/ZhZ8eJZc42
+How to Reset Bios by Removing CMOS Battery: https://www.youtube.com/watch?v=S9hyEPTFR10
+________________
+
+
+Don’t Mass Apply All These Settings! Do Them in Groups or you Can Risk Bricking your OS and Having Issues.
+
+
+Native ASPM - Disabled
+Wake System from S5 - Disabled
+ACPI Debug - Disabled
+ACPI Sleep State -  Disabled
+ACPI Standby State - Suspend Disabled
+Low Power S0 Idle Capability - Disabled
+PUIS Enable - Disabled
+EC Notification - Disabled
+EC CS Debug Light - Disabled
+EC Low Power Mode - Disabled
+Sensor Standby - Disabled
+CS PL1 Limit - Disabled
+Intel Ready Mode Technology - Disabled
+Intel RMT State - Disabled
+PCI Delay Optimization - Enabled
+MSI enabled - Enabled
+C6DRAM - Disabled
+SW Guard Extensions (SGX) - Software Controlled
+Intel Virtualization Tech - Disabled
+PECI - Disabled
+BIST - Disabled
+AP threads Idle Manner - RUN Loop
+Intel(R) Speed Shift Technology Interrupt Control - Disabled
+Boot performance mode - Turbo Performance
+EIST - Disabled
+Race To Halt (RTH) - Disabled
+Intel Speed Shift Technology - Disabled
+Intel(R) Adaptive Boost Technology - Disabled
+Enhanced C-states - Disabled
+CPU C-states - Disabled
+Intel C-State - Disabled
+C1E Support - Disabled
+C-State Auto Demotion - Disabled
+C-State Un-demotion - Disabled
+Package C-State Demotion - Disabled
+Package C-State Un-demotion - Disabled
+CState Pre-Wake - Disabled
+Package C State Limit - C0
+CPU C States Support - Disabled
+Package C States support - Disabled
+Interrupt Redirection Mode Selection - Round robin
+Energy Efficient P-state - Disabled
+Energy Efficient Turbo - Disabled
+Bi-directional PROCHOT# - Disabled
+Disable PROCHOT# Output - Enabled
+PROCHOT Response - Disabled
+PROCHOT Lock - Disabled
+ACPI T-States - 0
+Power Loss Notification Feature - Disabled
+P-state Capping - Disabled
+ZPODD - Disabled
+BCLK Aware Adaptive Voltage - Disabled
+TVB Ratio Clipping - Disabled
+Ring Down Bin - Disabled
+Enable ASPM - Disabled
+Enable LTR - Disabled
+LTR - Disabled
+Enable TBT ASPM - Disabled
+JTAG C10 Power Gate - Disabled
+Re-Size BAR Support - Enabled
+Above 4G memory/Crypto Currency mining - Enabled
+ASPM - Disabled
+LTR Mechanism Enable - Disabled
+Clock Power Management - Disabled
+USB 2.0 Controller Mode - HiSpeed
+USB S5 Wakeup Support - Disabled
+DMI Link ASPM Control - Disabled
+Power Down Unused Lanes - Disabled
+Tcc Activation Offset - 0
+EPG DIMM Idd3N - 0
+EPG DIMM Idd3P - 0
+PEG 0 ASPM - Disabled
+PEG 1 ASPM - Disabled
+PEG0 - ASPM - Disabled
+PEG1 - ASPM - Disabled
+PEG2 - ASPM - Disabled
+RC6(Render Standby) - Disabled
+DDR PowerDown and idle counter - PCODE
+For LPDDR Only: DDR PowerDown and idle counter - PCODE
+PowerDown Energy Ch0Dimm0 - 0
+PowerDown Energy Ch0Dimm1 - 0
+PowerDown Energy Ch1Dimm0 - 0
+PowerDown Energy Ch1Dimm1 - 0
+PCI Express Clock Gating - Disabled
+PCI Express Power Gating - Disabled
+L1 Substates - Disabled
+LAN Wake From DeepSx - Disabled
+Wake on LAN Enable - Disabled
+Wake on WLAN and BT Enable - Disabled
+DeepSx Wake on WLAN and BT Enable - Disabled
+HPET - Enabled 
+Legacy IO Low Latency - Enabled
+PCH Cross Throttling - Disabled
+Pcie Pll SSC - 0.0%
+Enable 8254 Clock Gate - Disabled
+USB2 PHY Sus Well Power Gating - Disabled
+Aggressive LPM Support - Disabled
+Disable Gen2 Pll Shutdown and L1 Controller Power gating - Enabled
+PCI Express Root Port 1 ASPM - Disabled
+PCI Express Root Port 2 ASPM - Disabled
+PCI Express Root Port 3 ASPM - Disabled
+PCI Express Root Port 4 ASPM - Disabled
+PCI Express Root Port 5 ASPM - Disabled
+PCI Express Root Port 6 ASPM - Disabled
+PCI Express Root Port 7 ASPM - Disabled
+PCI Express Root Port 8 ASPM - Disabled
+PCI Express Root Port 9 ASPM - Disabled
+PCI Express Root Port 10 ASPM - Disabled
+PCI Express Root Port 11 ASPM - Disabled
+PCI Express Root Port 12 ASPM - Disabled
+PCI Express Root Port 13 ASPM - Disabled
+PCI Express Root Port 14 ASPM - Disabled
+PCI Express Root Port 15 ASPM - Disabled
+PCI Express Root Port 16 ASPM - Disabled
+PCI Express Root Port 17 ASPM - Disabled
+PCI Express Root Port 18 ASPM - Disabled
+PCI Express Root Port 19 ASPM - Disabled
+PCI Express Root Port 20 ASPM - Disabled
+PCI Express Root Port 21 ASPM - Disabled
+PCI Express Root Port 22 ASPM - Disabled
+PCI Express Root Port 23 ASPM - Disabled
+PCI Express Root Port 24 ASPM - Disabled
+Modern StandBy - Disabled
+USB Standby Power at S4/S5 - Disabled
+PEG0 - ASPM - Disabled
+PEG1 - ASPM - Disabled
+PEG2 - ASPM - Disabled
+Intel Adaptive Boost Technology - Disabled
+Power Down Mode - Disabled
+Intel Virtualization Tech - Disabled
+Intel VT-D Tech - Disabled
+PCIE Spread Spectrum - Disabled
+Thermal Throttling Level - Manual
+T0 Level - 0
+T1 Level - 0 
+T2 Level - 0
+Enable Hibernation - 0
+Extreme Memory Profile(XMP) - Enabled (If you haven’t ram oc’ed)
+Execute Disable Bit - Disabled
+Advanced Error Reporting - Disabled
+Probeless Trace - Disabled
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________
+
+
+NEEDS TESTING (Recommended to do but test one by one):
+Round Trip Latency - Enabled
+Turn Around Timing Training - Enabled
+CPU Wakeup Timer - Disabled
+OBFF - Disabled
+PCI Latency Timer - Test All Values
+PCI-X Latency Timer - Test All Values
+CPU Cooler Tuning - Water Cooler (Even if you don’t have an AIO)
+PERR# Generation - Disabled
+SERR# Generation - Disabled
+SR-IOV Support - Disabled
+URR - Disabled
+FER - Disabled
+NFER - Disabled
+CER - Disabled
+CTO - Disabled
+PME SCI - Disabled
+Enable RH Prevention - Disabled
+Maximum Payload - (The Max Value)
+Maximum Read Request - (The Max Value)
+PEG0 Max Payload size - (The Max Value)
+PEG1 Max Payload size - (The Max Value)
+PEG2 Max Payload size - (The Max Value)
+PEG3 Max Payload size - (The Max Value)
+________________
+
+
+Intel Tip: Intel Turbo Boost technology is really trash, if you have an intel K or KF cpu, you are allowed to set clock speeds. If you don’t want to overclock, it's best to set your cpu at your max turbo boost speed statically. So instead of your cpu frequency being within a range, it's at a static number. 
+
+
+To do this, you set your cpu ratio in bios to the max turbo boost frequency. (EX: The max turbo boost frequency for a 10600k is 4.8ghz, so cpu ratio in bios will be set to 48. You also want to set a static voltage, there are many ways of doing this, but a quick way is to download hwinfo and stress your cpu. Look for the max vcore voltage and just set the cpu voltage in bios to that number or 0.05v-0.15v less. You also want to disable turbo boost and other settings that promote dynamic ranges:
+
+
+Intel(R) Turbo Boost Max Technology 3.0 - Disabled
+Intel Turbo Boost - Disabled
+Voltage Optimization - Disabled
+TVB Voltage Optimizations - Disabled
+Game Boost - Disabled
