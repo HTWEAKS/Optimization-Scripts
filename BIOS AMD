@@ -1,0 +1,150 @@
+credits to ancel, link to his discord server: https://discord.gg/qN8TaRqF
+
+AMD Hidden Bios Setting Guide (Scewin)
+By: ancel_
+
+
+Disclaimer: This guide aims to assist users in accessing hidden BIOS settings to enhance system performance and reduce latency. However, please be aware that altering BIOS settings carries inherent risks and may result in unintended consequences, including system instability or hardware damage. Proceed with caution and at your own risk. I am not liable or responsible for any issues that may arise from following the instructions in this guide.
+
+
+Discord Server: https://discord.gg/ZhZ8eJZc42
+How to Reset Bios by Removing CMOS Battery: https://www.youtube.com/watch?v=S9hyEPTFR10
+________________
+Don’t Mass Apply All These Settings! Do Them in Groups or you Can Risk Bricking your OS and Having Issues.
+
+Primary Video Adaptor - Ext Graphics (PEG) (If not using Integrated GPU)
+PX Dynamic Mode - Disabled
+Discrete GPU's Audio - Disabled
+Adaptive S4 - Disabled
+LAN Power Enable - Disabled
+PM L1 SS - Disabled
+Unused GPP Clocks Off - Disabled
+Clock Power Management(CLKREQ#) - Disabled
+Win7 USB Wake Support - Disabled
+ACP Power Gating - Disabled
+ACP CLock Gating - Disabled
+DRAM Latency Enhance - Enabled
+Power Down Enable - Disabled
+ECO Mode - Disabled
+LN2 Mode - Disabled
+SoC/Uncore OC Mode - Enabled
+LCLK DPM - Disabled
+LCLK DPM Enhanced PCIe Detection - Disabled
+SMEE - Disabled
+Global C-state Control - Disabled
+ACPI _CST C1 Declaration - Disabled
+Indirect Branch Prediction Speculation - Disabled
+Fast Short REP MOVSB - Enabled
+Enhanced REP MOVSB/STOSB - Enabled
+REP-MOV/STOS Streaming - Enabled
+Disable DF to external downstream IP SyncFloodPropagation - Sync flood disabled
+Disable DF sync flood propagation - Sync flood disabled
+Freeze DF module queues on error - Disabled
+CC6 memory region encryption - Disabled
+PSP error injection support - False
+DRAM scrub time - Disabled
+Poison scrubber control - Disabled
+Redirect scrubber control - Disabled
+GMI encryption control - Disabled
+xGMI encryption control - Disabled
+Data Poisoning - Disabled
+RCD Parity - Disabled
+DRAM Address Command Parity Retry - Disabled
+Write CRC Enable - Disabled
+DRAM Write CRC Enable and Retry Limit - Disabled
+DRAM ECC Enable - Disabled
+DRAM UECC Retry - Disabled
+BankGroupSwap - Disabled
+BankGroupSwapAlt - Enabled
+Address Hash Bank - Disabled
+Address Hash CS - Disabled
+Address Hash Rm - Disabled
+IOMMU - Disabled
+DMA Protection - Disabled
+DMAr Support - Disabled
+ACS Enable - Disabled
+Enable AER Cap - Disabled
+SRIS - Enable
+Determinism Control - Manual
+Determinism Slider - Power
+APBDIS - 1
+DF Cstates - Disabled
+Fixed SOC Pstate - P0
+CPPC - Disabled
+CPPC Preferred Cores - Disabled
+NBIO SyncFlood Generation - Disabled
+NBIO SyncFlood Reporting - Disabled
+Log Poison Data from SLINK - Disabled
+Edpc Control - Disabled
+ESPI Enable - Disabled
+ALink RAS Support - Disabled
+BIOS Mode - OC Genie Mode
+CPU temperature Warning Control - Disabled
+Resume By PCI-E Device - 0
+Resume By Onboard Intel LAN - 0
+Resume By USB Device - 0
+Resume From S3/S4/S5 By PS/2 Mouse - 0
+Resume From S3/S4/S5 By PS/2 keyboard - 0
+Re-Size BAR Support - Enabled
+ASPM Control for CPU - Disabled
+S3/Modern Standby Support - Disabled
+HPET - Enabled
+A-XMP - Enabled (If you haven’t ram oc’ed)
+DRAM map inversion - Enabled
+SVM Mode - Disabled
+Spread Spectrum - Disabled
+Opcache Control - Disabled
+TSME - Disabled
+ACPI Standby State - Suspend Disabled
+ASPM Mode Control - Disabled
+PPC Adjustment - PState 0
+SR-IOV Support - Disabled
+ASPM Support - Disabled
+PCIB Clock Run - Disabled
+Int. Clk Differential Spread - Disabled
+SATA Slumber State Capability - Disabled
+SB Clock Spread Spectrum - Disabled
+ACPI SLIT remote relative distance - Near
+SPD Read Optimization - Enabled
+PCIe Ten Bit Tag Support - Disabled
+NBIO DPM Control - Manual
+NBIO Poison Consumption - Disabled
+NBIO RAS Global Control - Manual
+NBIO RAS Control - Disabled
+NBIO SyncFlood Generation - Disabled
+NBIO SyncFlood Reporting - Disabled
+Sata RAS Support - Disabled
+Aggresive SATA Device Sleep Port 0 - Disabled
+Aggresive SATA Device Sleep Port 1 - Disabled
+Socket1 DevSlp0 Enable - Disabled
+Socket1 DevSlp1 Enable - Disabled
+Chipset Power Saving Features - Disabled
+ACPI SRAT L3 Cache As NUMA Domain - Enabled
+Periodic Directory Rinse - Disabled
+PSS Support - Disabled
+AB Clock Gating - Disabled
+Enable Hibernation (Can Cause Audio to Cut Off) - 0
+NEEDS TESTING (Recommended to do but test one by one):
+NX Mode - Disabled (Enable if you play Valorant)
+SMT Control - Disable for Latency | Enable for FPS
+System probe filter - Disabled (Enable if you have HT/SMT on)
+4-link xGMI max speed - 25Gbps
+3-link xGMI max speed - 25Gbps
+xGMI Link Width Control - Manual
+xGMI Force Link Width - 2
+xGMI Force Link Width Control - Force
+xGMI Max Link Width Control - Manual
+xGMI Max Link Width - 1
+Socket 0 NBIO 0 Target DPM Level - 2
+Socket 0 NBIO 1 Target DPM Level - 2
+Socket 0 NBIO 2 Target DPM Level - 2
+Socket 0 NBIO 3 Target DPM Level - 2
+Socket 1 NBIO 0 Target DPM Level - 2
+Socket 1 NBIO 1 Target DPM Level - 2
+Socket 1 NBIO 2 Target DPM Level - 2
+Socket 1 NBIO 3 Target DPM Level - 2
+Core Watchdog Timer Enable - Disabled
+Maximum Payload - (The Max Value)
+Maximum Read Request - (The Max Value)
+Streaming Stores Control - Disabled
+________________
